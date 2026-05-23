@@ -11,3 +11,8 @@ try:
     st.dataframe(quick_buttons_from_csv)
 except FileNotFoundError:
     st.warning('quick_buttons.csv が見つかりませんでした。')
+    # 空のデータフレームを表示
+    empty_df = pd.DataFrame(columns=['名前', '金額'])
+    st.dataframe(empty_df)
+except Exception as e:
+    st.error(f'予期しないエラー: {e}')
